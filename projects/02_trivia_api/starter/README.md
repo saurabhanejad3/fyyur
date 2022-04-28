@@ -271,112 +271,111 @@ The API will return three error types when requests fail:
 
 ```
 
+#### POST /questions/search
+- General: Search Questions if search term is posted
+  - A POST endpoint to get questions based on a search term.
+  - It returns any questions for whom the search term is a substring of the question.
+  - curl call example: `curl -X POST --data "{\"searchTerm\":\"test\"}" --header "Content-Type: application/json" http://127.0.0.1:5000/questions/search`
+  - Sample view will be like:
+  ```
+  {
+    "questions": [
+      {
+        "answer": "test testtest",
+        "category": 4,
+        "difficulty": 2,
+        "id": 26,
+        "question": " teste test"
+      }
+    ],
+    "success": true,
+    "total_questions": 1
+  }
+  ```
 #### POST /questions
-- General: Search Questions if search term is posted also facilitate to create a new question set 
-  - Search Feature:
-    - A POST endpoint to get questions based on a search term.
-    - It returns any questions for whom the search term is a substring of the question.
-    - curl call example: `curl -X POST --data "{\"searchTerm\":\"test\"}" --header "Content-Type: application/json" http://127.0.0.1:5000/questions`
-    - Sample view will be like:
-    ```
-    {
-      "questions": [
-        {
-          "answer": "test testtest",
-          "category": 4,
-          "difficulty": 2,
-          "id": 26,
-          "question": " teste test"
-        }
-      ],
-      "success": true,
-      "total_questions": 1
-    }
-    ```
-
-  - Create new Question Set:
-    - An endpoint to create question with request set "question and answer text, category, and difficulty score" and create a question ID.  
-    - curl call example: `curl -X POST --data "{\"question\":\"What is capital of India?\",\"answer\":\"Delhi\", \"category\":\"4\", \"difficulty\":\"3\"}" --header "Content-Type: application/json" http://127.0.0.1:5000/questions`
-    - Sample view will be like:    
-    ```
-    {
-      "created": 53,
-      "questions": [
-        {
-          "answer": "Apollo 13",
-          "category": 5,
-          "difficulty": 4,
-          "id": 2,
-          "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
-        },
-        {
-          "answer": "Tom Cruise",
-          "category": 5,
-          "difficulty": 4,
-          "id": 4,
-          "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
-        },
-        {
-          "answer": "Maya Angelou",
-          "category": 4,
-          "difficulty": 2,
-          "id": 5,
-          "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
-        },
-        {
-          "answer": "Edward Scissorhands",
-          "category": 5,
-          "difficulty": 3,
-          "id": 6,
-          "question": "What was the title of the 1990 fantasy directed by Tim Burton about a young man with multi-bladed appendages?"
-        },
-        {
-          "answer": "Brazil",
-          "category": 6,
-          "difficulty": 3,
-          "id": 10,
-          "question": "Which is the only team to play in every soccer World Cup tournament?"
-        },
-        {
-          "answer": "Uruguay",
-          "category": 6,
-          "difficulty": 4,
-          "id": 11,
-          "question": "Which country won the first ever soccer World Cup in 1930?"
-        },
-        {
-          "answer": "Lake Victoria",
-          "category": 3,
-          "difficulty": 2,
-          "id": 13,
-          "question": "What is the largest lake in Africa?"
-        },
-        {
-          "answer": "The Palace of Versailles",
-          "category": 3,
-          "difficulty": 3,
-          "id": 14,
-          "question": "In which royal palace would you find the Hall of Mirrors?"
-        },
-        {
-          "answer": "Agra",
-          "category": 3,
-          "difficulty": 2,
-          "id": 15,
-          "question": "The Taj Mahal is located in which Indian city?"
-        },
-        {
-          "answer": "Escher",
-          "category": 2,
-          "difficulty": 1,
-          "id": 16,
-          "question": "Which Dutch graphic artist\u2013initials M C was a creator of optical illusions?"
-        }
-      ],
-      "success": true,
-      "total_questions": 30
-    }
-    ```
+General: Create new Question Set
+  - An endpoint to create question with request set "question and answer text, category, and difficulty score" and create a question ID.  
+  - curl call example: `curl -X POST --data "{\"question\":\"What is capital of India?\",\"answer\":\"Delhi\", \"category\":\"4\", \"difficulty\":\"3\"}" --header "Content-Type: application/json" http://127.0.0.1:5000/questions`
+  - Sample view will be like:    
+  ```
+  {
+    "created": 53,
+    "questions": [
+      {
+        "answer": "Apollo 13",
+        "category": 5,
+        "difficulty": 4,
+        "id": 2,
+        "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
+      },
+      {
+        "answer": "Tom Cruise",
+        "category": 5,
+        "difficulty": 4,
+        "id": 4,
+        "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
+      },
+      {
+        "answer": "Maya Angelou",
+        "category": 4,
+        "difficulty": 2,
+        "id": 5,
+        "question": "Whose autobiography is entitled 'I Know Why the Caged Bird Sings'?"
+      },
+      {
+        "answer": "Edward Scissorhands",
+        "category": 5,
+        "difficulty": 3,
+        "id": 6,
+        "question": "What was the title of the 1990 fantasy directed by Tim Burton about a young man with multi-bladed appendages?"
+      },
+      {
+        "answer": "Brazil",
+        "category": 6,
+        "difficulty": 3,
+        "id": 10,
+        "question": "Which is the only team to play in every soccer World Cup tournament?"
+      },
+      {
+        "answer": "Uruguay",
+        "category": 6,
+        "difficulty": 4,
+        "id": 11,
+        "question": "Which country won the first ever soccer World Cup in 1930?"
+      },
+      {
+        "answer": "Lake Victoria",
+        "category": 3,
+        "difficulty": 2,
+        "id": 13,
+        "question": "What is the largest lake in Africa?"
+      },
+      {
+        "answer": "The Palace of Versailles",
+        "category": 3,
+        "difficulty": 3,
+        "id": 14,
+        "question": "In which royal palace would you find the Hall of Mirrors?"
+      },
+      {
+        "answer": "Agra",
+        "category": 3,
+        "difficulty": 2,
+        "id": 15,
+        "question": "The Taj Mahal is located in which Indian city?"
+      },
+      {
+        "answer": "Escher",
+        "category": 2,
+        "difficulty": 1,
+        "id": 16,
+        "question": "Which Dutch graphic artist\u2013initials M C was a creator of optical illusions?"
+      }
+    ],
+    "success": true,
+    "total_questions": 30
+  }
+  ```
 
 #### GET /categories/<int:category_id>/questions
 - General: get questions based on category
